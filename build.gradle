@@ -8,12 +8,18 @@
 
 plugins {
     // Apply the java-library plugin to add support for Java Library
-    id 'application'
+    id 'java'
 }
 
-application {
-	mainClassName = 'ihm.PokerWindow'
+jar {
+	manifest {
+		attributes 'Main-Class': 'ihm.PokerWindow'
+	}
 }
+
+//application {
+//	mainClassName = 'ihm.PokerWindow'
+//}
 
 repositories {
     // Use jcenter for resolving your dependencies.
@@ -23,5 +29,6 @@ repositories {
 }
 
 dependencies {
-
+	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.5.2'
+	
 }
